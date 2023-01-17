@@ -21,8 +21,9 @@ public class DemoData {
 	
 	public static void makeData() {
 			demo.addAll(Arrays.asList(p1,p2,p3,p4,p5,p6));
+			System.out.print("Basisdaten der Artikel im Sortiment am "+LocalDate.now()+": \n");
 			for(Product p : demo) {
-				System.out.print(p.getName() + "\n" +p.getQuality()+" ");
+				System.out.print(p);
 			}
 	}
 }

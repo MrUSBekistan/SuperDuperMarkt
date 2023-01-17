@@ -12,10 +12,15 @@ public class Wine extends Product {
 	}
 
 	@Override
-	public void ageing(LocalDate today){
-		long age = ChronoUnit.DAYS.between(super.getExpiry(), today);
-		System.out.print(age+ " ");
-		long updateQuality = super.getQuality()+age;
+	public void ageing(long days){
+		long updateQuality;
+		if (days%10 == 0) {
+			updateQuality = super.getQuality()+days/10;
+			//System.out.print("bisher: "+super.getQuality()+" jetzt"+updateQuality);
+		}	
+		else {
+			updateQuality = super.getQuality();
+		}
 		super.setQuality(updateQuality);
 	};
 	

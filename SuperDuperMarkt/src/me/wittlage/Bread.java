@@ -9,10 +9,9 @@ public class Bread extends Product {
 		super(name, expiry, quality, price);
 	}
 
-	public void ageing(){
-		long age = ChronoUnit.DAYS.between(super.getExpiry(), LocalDate.now());
-		System.out.print(age);
-		long updateQuality = super.getQuality()+(int)age;
+	@Override
+	public void ageing(long days){
+		long updateQuality = super.getQuality()-days*2;
 		super.setQuality(updateQuality);
 	};
 }

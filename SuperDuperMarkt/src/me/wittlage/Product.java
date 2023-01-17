@@ -19,10 +19,8 @@ public class Product {	//Produkt
 		this.baseprice= baseprice;
 	}
 	
-	public void ageing(LocalDate today){
-		long age = ChronoUnit.DAYS.between(getExpiry(), today);
-		System.out.print(age+" ");//zeit bis zum ablauf
-		long updateQuality = getQuality()-(age);
+	public void ageing(long days){
+		long updateQuality = getQuality()-(days);
 		setQuality(updateQuality);
 	};
 	
@@ -75,5 +73,12 @@ public class Product {	//Produkt
 		}*/
 		return true;
 	}
+	
+	
+	@Override
+		public String toString() {
+			String out = "Name: "+getName()+" \n"+"Ablauf: "+getExpiry()+" \n"+"Qualität: "+getQuality()+" \n"+"Preis: " +getDayprice()+ " \n"+ " \n";
+			return out;
+		}
 	
 }
