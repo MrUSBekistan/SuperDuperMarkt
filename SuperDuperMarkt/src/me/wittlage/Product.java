@@ -19,6 +19,10 @@ public class Product {	//Produkt
 		this.baseprice= baseprice;
 	}
 	
+	public boolean stillgood() {
+		return true;
+	}
+	
 	public void ageing(long days){
 		long updateQuality = getQuality()-(days);
 		setQuality(updateQuality);
@@ -58,26 +62,14 @@ public class Product {	//Produkt
 		Double round = Math.round(dayprice * 100.0) / 100.0;
 		return round;
 	}
+	
 	public void setDayprice() {
-		 /* der Faktor Qualität muss noch rein*/
 		dayprice = baseprice+(0.1*getQuality());
 	}
 	
-	public boolean stillgood() {
-		/*if(getQuality() < minqual || getExpiry().equals(LocalDate.now())) {
-			return false;
-		}
-		else 
-		{
-			return true;
-		}*/
-		return true;
-	}
-	
-	
 	@Override
 		public String toString() {
-			String out = "Name: "+getName()+" \n"+"Ablauf: "+getExpiry()+" \n"+"Qualität: "+getQuality()+" \n"+"Preis: " +getDayprice()+ " \n"+ " \n";
+			String out = " "+getName()+" hat eine Qualität von "+getQuality()+" und kostet " +getDayprice()+ "€"+ " noch gut? "+ stillgood() +" \n";
 			return out;
 		}
 	

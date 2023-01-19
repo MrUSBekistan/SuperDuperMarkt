@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class DemoData {
+	class DemoData {
 	
 	//demoProdukte
 	static List<Product> demo = new ArrayList<Product>();

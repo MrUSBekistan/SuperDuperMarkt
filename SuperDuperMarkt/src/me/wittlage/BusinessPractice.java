@@ -12,7 +12,6 @@ public class BusinessPractice {
 		this.agingdays = agingdays;
 	}
 	
-	
 	public void setToday(LocalDate today) {
 		this.today = today;
 	}
@@ -22,15 +21,7 @@ public class BusinessPractice {
 	public void setAgingdays(int agingdays) {
 		this.agingdays = agingdays;
 	}
-	
-	/*
- 	public void ageToDate(LocalDate date) {
-		for(Product p : DemoData.demo) {
-			p.ageing(date);
-			System.out.print(p.getName()+" aged +1 ");
-		}
-	}
-	*/
+
 	
 	public void ageByDays(long days) {
 		LocalDate datumundtage = today.plusDays(days);
