@@ -69,7 +69,9 @@ public class Product {	//Produkt
 	
 	@Override
 		public String toString() {
-			String out = " "+getName()+" hat eine Qualität von "+getQuality()+" und kostet " +getDayprice()+ "€"+ " noch gut? "+ stillgood() +" \n";
+			String out = " "+getName()+" hat eine Qualität von "+getQuality()+ 
+					" und kostet " +getDayprice()+ "€"+
+					(stillgood() ? ", die Haltbarkeit ist noch gut" : ", sollte aus dem Regal genommen werden") +" \n";
 			return out;
 		}
 	
