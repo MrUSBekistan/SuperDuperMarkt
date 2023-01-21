@@ -1,9 +1,8 @@
 package me.wittlage;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
-public class Product {	//Produkt
+public class Product implements Comparable<Product> {	//Produkt
 
 	private String name;
 	private LocalDate expiry;
@@ -74,5 +73,11 @@ public class Product {	//Produkt
 					(stillgood() ? ", die Haltbarkeit ist noch gut" : ", sollte aus dem Regal genommen werden") +" \n";
 			return out;
 		}
+
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 }

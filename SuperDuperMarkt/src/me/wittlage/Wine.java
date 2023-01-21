@@ -1,7 +1,6 @@
 package me.wittlage;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Wine extends Product {
 	

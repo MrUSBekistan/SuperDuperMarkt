@@ -8,8 +8,14 @@ import java.util.List;
 
 	class DemoData {
 	
+	public DemoData() {
+			makeData();
+		}
+
+
+
 	//demoProdukte
-	static List<Product> demo = new ArrayList<Product>();
+	private static List<Product> demo = new ArrayList<Product>();
 	
 	//Produkte
 	static Product p1 = new Cheese("Gouda", LocalDate.of(2023, 03, 17), 45 , 4.20);
@@ -19,6 +25,20 @@ import java.util.List;
 	static Product p5 = new Bread("Pumpernickel", LocalDate.of(2023, 2, 3), 77, 2.25);
 	static Product p6 = new Bread("Ciabatta", LocalDate.of(2023, 1, 30), 40, 1.98);	
 	
+	
+	
+	static List<Product> getDemo() {
+		return demo;
+	}
+
+
+
+	static void setDemo(List<Product> demo) {
+		DemoData.demo = demo;
+	}
+
+
+
 	public static void makeData() {
 			demo.addAll(Arrays.asList(p1,p2,p3,p4,p5,p6));
 			System.out.print("Basisdaten der Artikel im Sortiment am "+LocalDate.now()+": \n");
