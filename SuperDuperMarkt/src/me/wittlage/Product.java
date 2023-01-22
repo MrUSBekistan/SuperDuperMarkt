@@ -30,9 +30,10 @@ public class Product implements Comparable<Product> {	//Produkt
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	
+	/*public void setName(String name) {
 		this.name = name;
-	}
+	}*/
 	
 	public LocalDate getExpiry() {
 		return expiry;

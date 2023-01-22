@@ -2,8 +2,6 @@ package me.wittlage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,22 +56,5 @@ public class Readfile {
 		}
 		
 	}
-	
-	/*public static void writeOut(String outfile) {
-		
-		try {
-			File f = new File(outfile);
-			f.createNewFile();
-			FileWriter fw = new FileWriter(f);
-			fw.write(first+"\n");
-			for (Product p : DemoData.getDemo()) {
-				fw.write(p+"");    
-				}
-		    
-				fw.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	}*/
 	
 }
