@@ -6,10 +6,16 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class DemoData {
+	class DemoData {
 	
+	public DemoData() {
+			makeData();
+		}
+
+
+
 	//demoProdukte
-	static List<Product> demo = new ArrayList<Product>();
+	private static List<Product> demo = new ArrayList<Product>();
 	
 	//Produkte
 	static Product p1 = new Cheese("Gouda", LocalDate.of(2023, 03, 17), 45 , 4.20);
@@ -19,10 +25,21 @@ public class DemoData {
 	static Product p5 = new Bread("Pumpernickel", LocalDate.of(2023, 2, 3), 77, 2.25);
 	static Product p6 = new Bread("Ciabatta", LocalDate.of(2023, 1, 30), 40, 1.98);	
 	
+	
+	
+	static List<Product> getDemo() {
+		return demo;
+	}
+
+
+
+	static void setDemo(List<Product> demo) {
+		DemoData.demo = demo;
+	}
+
+
+
 	public static void makeData() {
 			demo.addAll(Arrays.asList(p1,p2,p3,p4,p5,p6));
-			for(Product p : demo) {
-				System.out.print(p.getName() + "\n" +p.getQuality()+" ");
 			}
-	}
 }

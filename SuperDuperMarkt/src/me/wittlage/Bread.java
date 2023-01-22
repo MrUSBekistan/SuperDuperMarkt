@@ -1,18 +1,29 @@
 package me.wittlage;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Bread extends Product {
 
+	long minqual = 30;
+	
 	public Bread(String name, LocalDate expiry, int quality, double price) {
 		super(name, expiry, quality, price);
 	}
 
-	public void ageing(){
-		long age = ChronoUnit.DAYS.between(super.getExpiry(), LocalDate.now());
-		System.out.print(age);
-		long updateQuality = super.getQuality()+(int)age;
+	@Override
+	public boolean stillgood() {
+		if(getQuality() < minqual || getExpiry().equals(LocalDate.now())) {
+			return false;
+		}
+		else 
+		{
+			return true;
+		}
+	}
+	
+	@Override
+	public void ageing(long days){
+		long updateQuality = super.getQuality()-days*2;
 		super.setQuality(updateQuality);
 	};
 }

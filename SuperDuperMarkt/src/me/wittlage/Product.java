@@ -1,9 +1,8 @@
 package me.wittlage;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
-public class Product {	//Produkt
+public class Product implements Comparable<Product> {	//Produkt
 
 	private String name;
 	private LocalDate expiry;
@@ -19,19 +18,22 @@ public class Product {	//Produkt
 		this.baseprice= baseprice;
 	}
 	
-	public void ageing(LocalDate today){
-		long age = ChronoUnit.DAYS.between(getExpiry(), today);
-		System.out.print(age+" ");//zeit bis zum ablauf
-		long updateQuality = getQuality()-(age);
+	public boolean stillgood() {
+		return true;
+	}
+	
+	public void ageing(long days){
+		long updateQuality = getQuality()-(days);
 		setQuality(updateQuality);
 	};
 	
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	
+	/*public void setName(String name) {
 		this.name = name;
-	}
+	}*/
 	
 	public LocalDate getExpiry() {
 		return expiry;
@@ -60,20 +62,23 @@ public class Product {	//Produkt
 		Double round = Math.round(dayprice * 100.0) / 100.0;
 		return round;
 	}
+	
 	public void setDayprice() {
-		 /* der Faktor Qualität muss noch rein*/
 		dayprice = baseprice+(0.1*getQuality());
 	}
 	
-	public boolean stillgood() {
-		/*if(getQuality() < minqual || getExpiry().equals(LocalDate.now())) {
-			return false;
+	@Override
+		public String toString() {
+			String out = " "+getName()+" hat eine Qualität von "+getQuality()+ 
+					" und kostet " +getDayprice()+ "€"+
+					(stillgood() ? ", die Haltbarkeit ist noch gut" : ", sollte aus dem Regal genommen werden") +" \n";
+			return out;
 		}
-		else 
-		{
-			return true;
-		}*/
-		return true;
+
+	@Override
+	public int compareTo(Product o) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 }

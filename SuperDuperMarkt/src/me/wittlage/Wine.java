@@ -1,27 +1,34 @@
 package me.wittlage;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 
 public class Wine extends Product {
 	
-	private final int minqual = 2147483647;
+	private final int maxqual = 50;
 
 	public Wine(String name, LocalDate expiry, int quality, double price) {
 		super(name, expiry, quality, price);
 	}
 
 	@Override
-	public void ageing(LocalDate today){
-		long age = ChronoUnit.DAYS.between(super.getExpiry(), today);
-		System.out.print(age+ " ");
-		long updateQuality = super.getQuality()+age;
+	public void ageing(long days){
+		long updateQuality;
+		if (days%10 == 0) {
+			updateQuality = super.getQuality()+days/10; //nach 10Tagen wird Qualli um 1 erhöht
+		}	
+		else {
+			updateQuality = super.getQuality();
+		}
 		super.setQuality(updateQuality);
+		
+		if (updateQuality >= maxqual) { //wenn neue Qualli über maxqual wird Qualli=maxqual gesetzt
+			super.setQuality(maxqual);
+		}
 	};
-	
+
 	@Override
 	public boolean stillgood() {
-		if(super.getQuality() < minqual || super.getExpiry().equals(LocalDate.now())) {
+		if(super.getExpiry().equals(LocalDate.now())) {
 			return false;
 		}
 		else 
