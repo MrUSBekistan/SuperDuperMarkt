@@ -2,12 +2,12 @@ package me.wittlage;
 
 import java.time.LocalDate;
 
-public class Product implements Comparable<Product> {	//Produkt
+public class Product {	//Produkt
 
 	private String name;
 	private LocalDate expiry;
 	private long quality;
-	private double baseprice;
+	double baseprice;
 	private double dayprice;
 	
 	public Product(String name, LocalDate expiry, int quality, double baseprice) {
@@ -30,21 +30,16 @@ public class Product implements Comparable<Product> {	//Produkt
 	public String getName() {
 		return name;
 	}
-	
-	/*public void setName(String name) {
-		this.name = name;
-	}*/
-	
+		
 	public LocalDate getExpiry() {
 		return expiry;
-	}
-	public void setExpiry(LocalDate expiry) {
-		this.expiry = expiry;
 	}
 	
 	public long getQuality() {
 		return quality;
 	}
+	
+	
 	public void setQuality(long updateQuality) {
 		this.quality = updateQuality;
 	
@@ -53,10 +48,7 @@ public class Product implements Comparable<Product> {	//Produkt
 	public double getBaseprice() {
 		return baseprice;
 	}
-	public void setBaseprice(double baseprice) {
-		this.baseprice = baseprice;
-	}
-
+	
 	public double getDayprice() {
 		setDayprice();
 		Double round = Math.round(dayprice * 100.0) / 100.0;
@@ -75,10 +67,4 @@ public class Product implements Comparable<Product> {	//Produkt
 			return out;
 		}
 
-	@Override
-	public int compareTo(Product o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 }

@@ -12,8 +12,8 @@ public class BusinessPractice {
 	
 	public void ageByDays(long days) {
 		datumundtage = today.plusDays(days);
-		System.out.print("Status der Produktpalette am "+datumundtage+" \n");
-		infobox.add(" Status der Produktpalette am "+datumundtage+"\n");
+		System.out.print("\nStatus der Produktpalette am "+datumundtage+" \n");
+		infobox.add("\n Status der Produktpalette am "+datumundtage+"\n");
 		for(Product p : DemoData.getDemo()) {
 			p.ageing(days);
 			infobox.add(p.toString());
