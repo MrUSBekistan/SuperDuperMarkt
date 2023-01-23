@@ -2,11 +2,11 @@ package me.wittlage;
 
 import java.time.LocalDate;
 
-public class Bread extends Product {
+    class Bread extends Product {
 
 	long minqual = 30;
 	
-	public Bread(String name, LocalDate expiry, int quality, double price) {
+	Bread(String name, LocalDate expiry, int quality, double price) {
 		super(name, expiry, quality, price);
 	}
 

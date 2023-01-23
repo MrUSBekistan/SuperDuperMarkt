@@ -1,5 +1,6 @@
 package me.wittlage;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
@@ -9,7 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.text.NumberFormatter;
 
 public class Gui{
@@ -26,9 +30,15 @@ public class Gui{
 		private JLabel userLabel, pwLabel;
 		Pickfile explorerChoose;
 		
-		public static void infoBox(String infoMessage, String titleBar){
-		    JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar,
-		    		JOptionPane.INFORMATION_MESSAGE);
+		public static void infoBox(String infoMessage, String titleBar){   
+		      JTextArea textArea = new JTextArea(5, 25);
+		      textArea.setText(infoMessage);
+		      textArea.setEditable(false);
+		      JScrollPane scrollPane = new JScrollPane(textArea);
+		      UIManager.put("OptionPane.minimumSize",new Dimension(840,420)); 
+		      JOptionPane.showMessageDialog(null, scrollPane, "InfoBox: " + titleBar,
+		  		    		JOptionPane.INFORMATION_MESSAGE);
+		    
 			}
 		
 		public void openGUI(){
@@ -92,9 +102,9 @@ public class Gui{
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					Readfile.readIn(inField.getText());
-					infoBox("Sortiment wurde erfolgreich eingelesen.", "Einlesen erfolgreich!");
+					infoBox("\n Sortiment wurde erfolgreich eingelesen.", "Einlesen erfolgreich!");
 				} catch (Exception e) {
-					infoBox("Sortiment konnte nich eingelesen werden", "Einlesen fehlgeschlagen!");
+					infoBox("\n Sortiment konnte nich eingelesen werden", "Einlesen fehlgeschlagen!");
 				}
 			}
 		});

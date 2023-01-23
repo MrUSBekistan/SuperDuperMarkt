@@ -2,11 +2,11 @@ package me.wittlage;
 
 import java.time.LocalDate;
 
-public class Wine extends Product {
+    class Wine extends Product {
 	
 	private final int maxqual = 50;
 
-	public Wine(String name, LocalDate expiry, int quality, double price) {
+	Wine(String name, LocalDate expiry, int quality, double price) {
 		super(name, expiry, quality, price);
 	}
 
@@ -35,5 +35,10 @@ public class Wine extends Product {
 		{
 			return true;
 		}
+	}
+	
+	@Override
+	public double getDayprice() {
+		return super.baseprice;
 	}
 }
